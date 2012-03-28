@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "challenger"
   gem.require_paths = ["lib"]
   gem.version       = Challenger::VERSION
+
+  gem.add_dependency "capistrano"
 end
