@@ -1,5 +1,4 @@
+require "capistrano"
 require "challenger/version"
 
-module Challenger
-  # Your code goes here...
-end
+Dir.glob(File.join(File.dirname(__FILE__), '/recipes/*.rb')).each { |f| load f }
