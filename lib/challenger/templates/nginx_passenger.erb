@@ -1,0 +1,6 @@
+server {
+  server_name <%= nginx_server_name %>;
+  root <%= current_path %>/public/;
+  passenger_enabled on;
+  rails_env production;
+}
