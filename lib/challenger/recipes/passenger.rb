@@ -7,3 +7,13 @@ namespace :passenger do
     run "sudo -u root `rbenv which passenger-install-nginx-module` --auto --auto-download --prefix=/etc/nginx"
   end
 end
+
+namespace :deploy do
+  task :start do; end
+  task :stop do; end
+
+  desc "Restart Application"
+  task :restart, roles: :app, except: {no_release: true} do
+    run "touch #{deploy_to}/current/tmp/restart.txt"
+  end
+end
