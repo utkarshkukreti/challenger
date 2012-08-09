@@ -1,24 +1,16 @@
 # Challenger
 
-TODO: Write a gem description
+## WARNING
+
+Although I run this on my production servers, please try it out on a test site before deploying a live site on it.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+`capify .` your Rails application.
 
-    gem 'challenger'
+Add `require 'challenger'` at the top of the Capfile
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install challenger
-
-## Usage
-
-TODO: Write usage instructions here
+You should now be able to access challenger tasks like `deploy:root`. Confirm by running `cap -T`.
 
 ## Contributing
 
@@ -27,3 +19,8 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+
+Licensed under the MIT License.
+(c) 2012, Utkarsh Kukreti.
