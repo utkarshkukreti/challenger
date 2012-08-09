@@ -24,7 +24,8 @@ namespace :deploy do
   task :root do
     set :user, "root"
     run "useradd deployer --home /var/apps --create-home --shell /bin/bash"
-    run 'if [[ $(cat /etc/sudoers) != *deployer* ]]; then sed -i "/root.*ALL=(ALL) ALL/ a\\\\deployer ALL\\=\\(ALL\\) NOPASSWD\\: ALL" /etc/sudoers; fi'
+    run 'if [[ $(cat /etc/sudoers) != *deployer* ]]; then ' +
+      'perl -i -p -e "s/(root.*?ALL.*?$)/\\1\\ndeployer\\tALL=(ALL) NOPASSWD: ALL\\n/" /etc/sudoers; fi'
     run "mkdir -p /var/apps/.ssh"
     public_key = File.read(ENV["PUBLIC_KEY"] || File.expand_path("~/.ssh/id_rsa.pub"))
     put public_key, "/tmp/public_key"
