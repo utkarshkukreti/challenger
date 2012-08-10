@@ -27,6 +27,7 @@ namespace :deploy do
     run 'if [[ $(cat /etc/sudoers) != *deployer* ]]; then ' +
       'perl -i -p -e "s/(root.*?ALL.*?$)/\\1\\ndeployer\\tALL=(ALL) NOPASSWD: ALL\\n/" /etc/sudoers; fi'
     run "mkdir -p /var/apps/.ssh"
+    run "chown -R deployer:deployer /var/apps/.ssh"
     public_key = File.read(ENV["PUBLIC_KEY"] || File.expand_path("~/.ssh/id_rsa.pub"))
     put public_key, "/tmp/public_key"
     run "cat /tmp/public_key >> /var/apps/.ssh/authorized_keys"
