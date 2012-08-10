@@ -14,6 +14,6 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, roles: :app, except: {no_release: true} do
-    run "touch #{deploy_to}/current/tmp/restart.txt"
+    run "touch #{current_release}/tmp/restart.txt"
   end
 end
