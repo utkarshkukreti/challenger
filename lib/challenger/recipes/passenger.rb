@@ -1,4 +1,4 @@
-set_default :passenger_version, "3.0.11"
+set_default :passenger_version, "3.0.18"
 namespace :passenger do
   desc "Install Passenger with Nginx"
   task :install, roles: :web do
